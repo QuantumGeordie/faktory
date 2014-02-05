@@ -1,8 +1,6 @@
-puts 'loading page object definition for home_page'
-
 module PageObjects
   module Faktory
-    class HomePage < ::AePageObjects::Document
+    class HomePage < FaktoryPage
       path '/'
     end
   end
