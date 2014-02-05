@@ -33,6 +33,8 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+gem 'foundation-rails'
+
 group :test, :development do
   gem 'selenium-webdriver'
   gem 'capybara', '2.2.1'
