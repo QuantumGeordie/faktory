@@ -1,0 +1,1 @@
+Dir['factories'].each { |f| require f}

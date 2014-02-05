@@ -38,3 +38,7 @@ group :test, :development do
   gem 'capybara', '2.2.1'
   gem 'ae_page_objects', '1.0.0'
 end
+
+group :test do
+  gem 'factory_girl_rails', '4.1.0'
+end
