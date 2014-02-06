@@ -2,7 +2,7 @@ module PageObjects
   module Faktory
     module Users
       class UsersPage < FaktoryPage
-        path '/#'
+        path '/users'
       end
     end
   end

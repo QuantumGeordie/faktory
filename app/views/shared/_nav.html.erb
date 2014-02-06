@@ -10,9 +10,16 @@
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
-        <li class="active"><a href="#">users</a></li>
-        <li class="active"><a href="#">lines</a></li>
-        <li class="active"><a href="#">rework</a></li>
+        <% if current_user %>
+          <li class="active"><%= link_to current_user.name, '#' %></li>
+          <li class="active"><%= link_to 'logout', destroy_user_session_path, :method=>'delete' %></li>
+        <% else %>
+          <li class="active"><%= link_to 'sign in', new_user_session_path %></li>
+          <li class="active"><%= link_to 'register', new_user_registration_path %></li>
+        <% end %>
+        <li class="active"><%= link_to 'users', users_path %></li>
+        <li class="active"><%= link_to 'lines', '#' %></li>
+        <li class="active"><%= link_to 'rework', '#' %></li>
       </ul>
       <!-- Left Nav Section -->
       <!--<ul class="left">-->

@@ -34,6 +34,7 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'foundation-rails'
+gem 'devise'
 
 group :test, :development do
   gem 'selenium-webdriver'

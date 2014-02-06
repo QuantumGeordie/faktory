@@ -2,7 +2,7 @@ module PageObjects
   module Faktory
     module Lines
       class LinesPage < FaktoryPage
-        path '/#'
+        path '/lines'
       end
     end
   end

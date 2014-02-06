@@ -2,7 +2,7 @@ module PageObjects
   module Faktory
     module Rework
       class ReworkPage < FaktoryPage
-        path '/#'
+        path '/rework'
       end
     end
   end

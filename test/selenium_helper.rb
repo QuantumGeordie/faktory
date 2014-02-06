@@ -13,5 +13,9 @@ module Faktory
   class SeleniumTestCase < ActiveSupport::TestCase
     include Capybara::DSL
 
+    def teardown
+      logout
+    end
+
   end
 end
