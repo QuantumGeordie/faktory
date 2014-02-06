@@ -21,7 +21,5 @@ module Fackory
     # -- they do not yet inherit this setting
     fixtures :all
 
-
   end
 end
-
