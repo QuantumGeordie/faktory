@@ -2,7 +2,7 @@ module PageObjects
   module Faktory
     module Users
       class UsersPage < FaktoryPage
-        path '/users'
+        path :users
       end
     end
   end

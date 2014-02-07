@@ -27,6 +27,14 @@ module PageObjects
         PageObjects::Faktory::Users::UsersSignInPage.new
       end
 
+      def register!
+        node.find_link('register').click
+        PageObjects::Faktory::Users::UsersSignUpPage.new
+      end
+
+      def logout
+        node.find_link('logout').click
+      end
 
     end
   end

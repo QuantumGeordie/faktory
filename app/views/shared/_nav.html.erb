@@ -12,14 +12,24 @@
       <ul class="right">
         <% if current_user %>
           <li class="active"><%= link_to current_user.name, '#' %></li>
-          <li class="active"><%= link_to 'logout', destroy_user_session_path, :method=>'delete' %></li>
+          <li class="active"><%= link_to 'logout', destroy_user_session_path, :method => 'delete' %></li>
         <% else %>
           <li class="active"><%= link_to 'sign in', new_user_session_path %></li>
           <li class="active"><%= link_to 'register', new_user_registration_path %></li>
         <% end %>
         <li class="active"><%= link_to 'users', users_path %></li>
-        <li class="active"><%= link_to 'lines', '#' %></li>
-        <li class="active"><%= link_to 'rework', '#' %></li>
+        <li class="active"><%= link_to 'link A', '#' %></li>
+        <li class="active"><%= link_to 'link B', '#' %></li>
+        <li class="has-dropdown">
+          <a href="#">Link C</a>
+          <ul class="dropdown">
+            <li><a href="#">link c.i</a></li>
+            <li><a href="#">link c.ii</a></li>
+            <li><a href="#">link c.iii</a></li>
+            <li><a href="#">link c.iv</a></li>
+            <li><a href="#">link c.v</a></li>
+          </ul>
+        </li>
       </ul>
       <!-- Left Nav Section -->
       <!--<ul class="left">-->
