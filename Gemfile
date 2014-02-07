@@ -40,6 +40,7 @@ group :test, :development do
   gem 'selenium-webdriver'
   gem 'capybara', '2.2.1'
   gem 'ae_page_objects', '1.0.0'
+  gem 'jasmine'
 end
 
 group :test do
