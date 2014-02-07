@@ -41,6 +41,7 @@ group :test, :development do
   gem 'capybara', '2.2.1'
   gem 'ae_page_objects', '1.0.0'
   gem 'jasmine'
+  gem 'ruby-prof'
 end
 
 group :test do
