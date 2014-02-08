@@ -24,8 +24,12 @@ class UsersTest < Faktory::SeleniumTestCase
     users_page = home_page.navigation.users!
     assert page.has_content?(user.name)
 
-    users_page.navigation.home!
+    home_page = users_page.navigation.home!
     assert_equal '/', page.current_path
+
+    home_page.navigation.current_user!
+    assert page.has_content?(user.name)
+    assert page.has_content?('current')
   end
 
   def test_sign_up

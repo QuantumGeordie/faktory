@@ -12,16 +12,6 @@ module PageObjects
         PageObjects::Faktory::Users::UsersPage.new if expect_success
       end
 
-      def lines!(expect_success = true)
-        node.find_link('lines').click
-        PageObjects::Faktory::Lines::LinesPage.new if expect_success
-      end
-
-      def rework!(expect_success = true)
-        node.find_link('lines').click
-        PageObjects::Faktory::Rework::ReworkPage.new if expect_success
-      end
-
       def sign_in!
         node.find_link('sign in').click
         PageObjects::Faktory::Users::UsersSignInPage.new
@@ -34,6 +24,11 @@ module PageObjects
 
       def logout
         node.find_link('logout').click
+      end
+
+      def current_user!
+        node.find("#js-current_user").click
+        PageObjects::Faktory::Users::UserPage.new
       end
 
     end
