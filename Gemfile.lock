@@ -167,6 +167,7 @@ DEPENDENCIES
   jasmine
   jquery-rails
   rails (= 3.2.16)
+  rake
   ruby-prof
   sass-rails (~> 3.2.3)
   selenium-webdriver

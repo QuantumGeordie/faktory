@@ -45,5 +45,6 @@ group :test, :development do
 end
 
 group :test do
+  gem 'rake'
   gem 'factory_girl_rails', '4.1.0'
 end
