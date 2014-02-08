@@ -1,4 +1,32 @@
-
 <h3>User</h3>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<table>
+  <tr>
+    <th>name</th>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td><%= @user.email if @user.email %></td>
+  </tr>
+
+  <tr>
+    <th>signed in count</th>
+    <td><%= @user.sign_in_count %></td>
+  </tr>
+
+  <tr>
+    <th>current sign in</th>
+    <td><%= @user.current_sign_in_at %></td>
+  </tr>
+
+  <tr>
+    <th>last sign in</th>
+    <td><%= @user.last_sign_in_at %></td>
+  </tr>
+
+  <tr>
+    <th>registered</th>
+    <td><%= @user.created_at %></td>
+  </tr>
+</table>
+

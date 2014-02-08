@@ -1,7 +1,18 @@
-<ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= link_to user.name, user %> signed up <%= user.created_at.to_date %>
-    </li>
-  <% end %>
-</ul>
+<h3>Users</h3>
+<table>
+  <thead>
+    <tr>
+      <th>name</th><th>registered</th><th>last signed in</th><th>signed in count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, user %></td>
+        <td><%= user.created_at %></td>
+        <td><%= user.last_sign_in_at %></td>
+        <td><%= user.sign_in_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
