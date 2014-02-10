@@ -23,6 +23,8 @@ group :test, :development do
   gem 'ae_page_objects', '1.0.0'
   gem 'jasmine'
   gem 'ruby-prof'
+  gem 'sauce'
+  gem 'sauce-connect'
 end
 
 group :test do

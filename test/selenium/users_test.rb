@@ -29,7 +29,6 @@ class UsersTest < Faktory::SeleniumTestCase
 
     home_page.navigation.current_user!
     assert page.has_content?(user.name)
-    assert page.has_content?('current')
   end
 
   def test_sign_up
@@ -43,7 +42,14 @@ class UsersTest < Faktory::SeleniumTestCase
     sign_up_page.sign_up!
 
     assert page.has_content?('Welcome! You have signed up successfully.')
-    assert page.has_content?('Kenny Dalglish')
+
+    user = User.last
+
+    home_page = PageObjects::Faktory::HomePage.new
+    home_page.navigation.toggle_menu
+    displayed_username = home_page.navigation.current_user_name.text
+    assert_equal user.name, displayed_username, 'The current user displayed'
+
     assert_equal "/", page.current_path, 'should end up on homepage'
   end
 
@@ -52,7 +58,9 @@ class UsersTest < Faktory::SeleniumTestCase
     login_as(user, :scope => :user)
 
     home_page = PageObjects::Faktory::HomePage.visit
+    home_page.navigation.toggle_menu
     assert page.has_content?(user.name), 'user should be logged in now'
+    home_page.navigation.toggle_menu
 
     home_page.navigation.logout
     assert page.has_content?('Signed out successfully.')

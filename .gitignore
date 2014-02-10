@@ -16,3 +16,5 @@
 
 .idea
 *.DS_store
+
+sauce_connect.log
