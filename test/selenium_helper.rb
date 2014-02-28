@@ -54,7 +54,7 @@ else
       include Capybara::DSL
 
       def setup
-        @browser_dimensions = ENV['BROWSER_SIZE'] #|| '600x800'
+        @browser_dimensions = ENV['BROWSER_SIZE'] || '800x600'
         if @browser_dimensions
           @starting_dimensions = get_current_browser_dimensions
           w = @browser_dimensions.split('x')[0]
@@ -76,6 +76,7 @@ end
 module Faktory
   class SeleniumTestCase
     include Kracker
+
 
   end
 end

@@ -80,7 +80,7 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
-    kracker (0.0.1)
+    kracker (0.0.2)
       capybara
       kramdown (~> 1.1.0)
     kramdown (1.1.0)
@@ -197,7 +197,7 @@ DEPENDENCIES
   foundation-rails
   jasmine
   jquery-rails
-  kracker
+  kracker (= 0.0.2)
   rails (= 3.2.16)
   rake
   ruby-prof

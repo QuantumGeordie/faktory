@@ -18,3 +18,6 @@
 *.DS_store
 
 sauce_connect.log
+
+test/kracker/current
+test/kracker/diff
