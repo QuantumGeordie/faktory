@@ -39,6 +39,9 @@ class UsersTest < Faktory::SeleniumTestCase
     sign_up_page.user_email.set 'king_kenny@lfc.com'
     sign_up_page.user_password.set 'looprevil'
     sign_up_page.user_password_confirmation.set 'looprevil'
+
+    page_same, msg = page_map_same?('sign_up')
+
     sign_up_page.sign_up!
 
     assert page.has_content?('Welcome! You have signed up successfully.')
@@ -51,6 +54,8 @@ class UsersTest < Faktory::SeleniumTestCase
     assert_equal user.name, displayed_username, 'The current user displayed'
 
     assert_equal "/", page.current_path, 'should end up on homepage'
+
+    assert page_same, msg
   end
 
   def test_logout
@@ -60,10 +65,17 @@ class UsersTest < Faktory::SeleniumTestCase
     home_page = PageObjects::Faktory::HomePage.visit
     home_page.navigation.toggle_menu
     assert page.has_content?(user.name), 'user should be logged in now'
+    logged_in_page_same, logged_in_msg = page_map_same?('logged_in')
+
     home_page.navigation.toggle_menu
 
     home_page.navigation.logout
     assert page.has_content?('Signed out successfully.')
+
+    logged_out_page_same, logged_out_msg = page_map_same?('logged_out')
+
+    assert logged_in_page_same,  logged_in_msg
+    assert logged_out_page_same, logged_out_msg
   end
 
 end

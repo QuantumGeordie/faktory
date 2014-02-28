@@ -8,6 +8,10 @@ class HomeTest < Faktory::SeleniumTestCase
     PageObjects::Faktory::HomePage.visit
 
     assert page.has_content?(page_text)
+
+    res, msg = page_map_same?('home')
+
+    assert res, msg
   end
 
 end

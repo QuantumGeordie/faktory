@@ -25,6 +25,7 @@ group :test, :development do
   gem 'ruby-prof'
   gem 'sauce'
   gem 'sauce-connect'
+  gem 'kracker'
 end
 
 group :test do

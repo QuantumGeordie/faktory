@@ -7,6 +7,8 @@ require 'selenium-webdriver'
 
 require 'page_objects'
 
+require 'kracker'
+
 if ENV["SAUCE"]
   require 'sauce'
   require 'sauce/capybara'
@@ -68,6 +70,13 @@ else
         logout
       end
     end
+  end
+end
+
+module Faktory
+  class SeleniumTestCase
+    include Kracker
+
   end
 end
 
