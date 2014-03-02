@@ -55,26 +55,6 @@ class UsersTest < Faktory::SeleniumTestCase
 
     assert_equal "/", page.current_path, 'should end up on homepage'
 
-    #if ENV['TRAVIS'] && !page_same
-    #  if File.exists?(Kracker.diff_filename('sign_up'))
-    #    diff_data = File.read(Kracker.diff_filename('sign_up'))
-    #    puts "diff data:"
-    #    puts diff_data
-    #  end
-    #
-    #  if File.exist?(Kracker.current_filename('sign_up'))
-    #    current_data = File.read(Kracker.current_filename('sign_up'))
-    #    puts "current data:"
-    #    puts current_data
-    #  end
-    #
-    #  if File.exists?(Kracker.master_filename('sign_up'))
-    #    master_data = File.read(Kracker.master_filename('sign_up'))
-    #    puts "master data:"
-    #    puts master_data
-    #  end
-    #end
-
     assert page_same, msg
   end
 

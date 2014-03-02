@@ -22,6 +22,7 @@ after_failure:
 - travis-artifacts upload
   --path test/kracker/current
   --path test/kracker/diff
+  --path tmp/screenshots
   --target-path faktory-artifacts/$TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER
 addons:
   firefox: 19.0.1

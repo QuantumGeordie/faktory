@@ -77,9 +77,24 @@ module Faktory
   class SeleniumTestCase
     include Kracker
 
+    def teardown
+      capture_artifacts unless passed?
+    end
+
+    def capture_artifacts
+      filename = File.join(screenshot_path, "#{send(:__name__)}.png")
+      page.driver.browser.save_screenshot(filename)
+    end
 
   end
 end
+
+def screenshot_path
+  File.join(::Rails.root, 'tmp', 'screenshots')
+end
+
+FileUtils.rm_rf screenshot_path
+FileUtils.mkdir_p screenshot_path
 
 def resize_browser(width, height)
   page.driver.browser.manage.window.resize_to(width, height)
