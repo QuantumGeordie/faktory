@@ -41,6 +41,7 @@ class UsersTest < Faktory::SeleniumTestCase
     sign_up_page.user_password_confirmation.set 'looprevil'
 
     page_same, msg = page_map_same?('sign_up')
+    assert page_same, msg
 
     sign_up_page.sign_up!
 
@@ -55,7 +56,6 @@ class UsersTest < Faktory::SeleniumTestCase
 
     assert_equal "/", page.current_path, 'should end up on homepage'
 
-    assert page_same, msg
   end
 
   def test_logout
