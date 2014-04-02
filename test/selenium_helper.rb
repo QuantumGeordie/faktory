@@ -19,7 +19,6 @@ if ENV["SAUCE"]
     config[:start_tunnel] = false
     config[:username]   = ENV['SAUCE_USERNAME']
     config[:access_key] = ENV['SAUCE_ACCESS_KEY']
-    config[:name] = 'faktory'
     config[:browsers] = [
         ['OS X 10.9', 'iPhone', '7'],
         ['Linux', 'Android', '4.0']
