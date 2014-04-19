@@ -46,6 +46,29 @@ if ENV["SAUCE"]
       end
     end
   end
+elsif ENV["BSTACK"]
+  bstack_username = ENV['BSTACK_USERNAME']
+  bstack_access_key = ENV['BSTACK_ACCESS_KEY']
+
+  url = rl = "http://#{bstack_username}:#{bstack_access_key}@hub.browserstack.com/wd/hub"
+  caps = Selenium::WebDriver::Remote::Capabilities.iphone
+  caps['browserstack.debug'] = 'true'
+  caps['browserstack.tunnel'] = 'true'
+  caps['browserstack.local'] = 'true'
+
+  Capybara.register_driver :bstack_browser do |app|
+    Capybara::Selenium::Driver.new(app, :browser => :remote, :url => url, :desired_capabilities => caps)
+  end
+
+  Capybara.default_driver = :bstack_browser
+
+  module Faktory
+    class SeleniumTestCase < ActiveSupport::TestCase
+      include Capybara::DSL
+
+    end
+  end
+
 else
   Capybara.default_driver = :selenium
   module Faktory
