@@ -18,13 +18,13 @@ gem 'foundation-rails'
 gem 'devise'
 
 group :test, :development do
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '2.42.0'
   gem 'capybara', '2.2.1'
   gem 'ae_page_objects', '1.0.0'
   gem 'jasmine'
   gem 'ruby-prof'
-  gem 'sauce'
-  gem 'sauce-connect'
+  gem 'sauce', '3.4.2', :require => false
+  gem 'sauce-connect', '3.4.1', :require => false
   gem 'kracker', '0.0.2'
 end
 

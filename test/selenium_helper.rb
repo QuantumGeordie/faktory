@@ -9,27 +9,40 @@ require 'page_objects'
 
 require 'kracker'
 
+RUN_KRACKER_TESTS = false
+
 if ENV["SAUCE"]
   require 'sauce'
   require 'sauce/capybara'
   require 'sauce/connect'
 
-  Sauce.config do |config|
-    config[:start_local_application] = true
-    config[:start_tunnel] = false
-    config[:username]   = ENV['SAUCE_USERNAME']
-    config[:access_key] = ENV['SAUCE_ACCESS_KEY']
-    config[:browsers] = [
-        ['OS X 10.9', 'iPhone', '7'],
-        ['Linux', 'Android', '4.0']
-    ]
+  Capybara.run_server = true
+  Capybara.server_port = 3333
+  ENV['APP_SERVER_PORT'] = Capybara.server_port.to_s
 
-    config[:application_host] = "localhost"
-    config[:local_application_port] = 3000
+  Sauce.config do |config|
+    config[:application_port] = ENV['APP_SERVER_PORT']
+    config[:start_local_application] = false
+    config[:start_tunnel]            = false
+
+    config[:application_host]        = "localhost"
+    config[:username]                = ENV['SAUCE_USERNAME']
+    config[:access_key]              = ENV['SAUCE_ACCESS_KEY']
+    config[:tags]                    = [ rand(36**8).to_s(36),       # fake run id to keep tests straight in saucelabs list
+                                         `whoami`.chomp,
+                                         `git rev-parse --abbrev-ref HEAD`.chomp ]
+
+    config[:browsers] = [
+                          ['OS X 10.8', 'iphone', '6.1'],
+                          ['OS X 10.8', 'iphone', '6.1'],
+                          ['Windows 8.1', 'Internet Explorer', '11'],
+                          ['Windows 8.1', 'firefox', '29']
+                        ]
   end
 
-  Capybara.default_driver = :sauce
-  Capybara.server_port = 7070
+  Capybara.default_wait_time = 30
+  Capybara.default_driver    = :sauce
+  Capybara.javascript_driver = :sauce
 
   module Faktory
     class SeleniumTestCase < Sauce::RailsTestCase
@@ -41,6 +54,10 @@ if ENV["SAUCE"]
       fixtures :all
       include Capybara::DSL
 
+      def setup
+
+      end
+
       def teardown
         logout
       end
@@ -51,10 +68,16 @@ elsif ENV["BSTACK"]
   bstack_access_key = ENV['BSTACK_ACCESS_KEY']
 
   url = rl = "http://#{bstack_username}:#{bstack_access_key}@hub.browserstack.com/wd/hub"
-  caps = Selenium::WebDriver::Remote::Capabilities.iphone
+  caps = Selenium::WebDriver::Remote::Capabilities.new
   caps['browserstack.debug'] = 'true'
   caps['browserstack.tunnel'] = 'true'
   caps['browserstack.local'] = 'true'
+  caps["browser"] = "IE"
+  caps["browser_version"] = "7.0"
+  caps["os"] = "Windows"
+  caps["os_version"] = "XP"
+  caps["name"] = "Testing Selenium 2 with Ruby on BrowserStack"
+
 
   Capybara.register_driver :bstack_browser do |app|
     Capybara::Selenium::Driver.new(app, :browser => :remote, :url => url, :desired_capabilities => caps)
