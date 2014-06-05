@@ -9,9 +9,10 @@ class HomeTest < Faktory::SeleniumTestCase
 
     assert page.has_content?(page_text)
 
-    res, msg = page_map_same?('home')
-
-    assert res, msg
+    if RUN_KRACKER_TESTS
+      res, msg = page_map_same?('home')
+      assert res, msg
+    end
   end
 
 end

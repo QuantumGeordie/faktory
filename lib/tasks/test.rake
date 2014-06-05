@@ -8,6 +8,14 @@ namespace :test do
     t.pattern = 'test/selenium/**/*_test.rb'
     #t.verbose = true
   end
+
+  namespace :selenium do
+    desc 'selenium tests on SauceLabs'
+    task :sauce do
+      ENV['SAUCE'] = 'true'
+      Rake::Task['test:selenium'].invoke
+    end
+  end
 end
 
 task :test => [ 'test:units', 'test:functionals', 'test:integration', 'test:selenium' ]
