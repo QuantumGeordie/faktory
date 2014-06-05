@@ -26,14 +26,16 @@ Aside from the basics a new rails app gets you, tests have been added with [Capy
 
 ####SauceLabs
 
-```rake test:selenium SAUCE=true``` will run on the [SauceLabs](https://saucelabs.com) VMs. the saucelabs authentication information is set in a few system environment variables (```SAUCE_USERNAME``` and ```SAUCE_ACCESS_KEY```).
+```rake test:selenium:sauce``` will run on the [SauceLabs](https://saucelabs.com) VMs. the saucelabs authentication information is set in a few system environment variables (```SAUCE_USERNAME``` and ```SAUCE_ACCESS_KEY```).
 
-the test is configured to run the tests on one iPhone and one Android device. this can be easily modified for a variety of devices in the ```selenium_helper``` file.
+the test is configured to run on a few devices/browsers. this can be easily modified for a variety of devices in the ```selenium_helper``` file. the platforms available can be found [here](https://saucelabs.com/platforms).
 
 ```
   config[:browsers] = [
-      ['OS X 10.9', 'iPhone', '7'],
-      ['Linux', 'Android', '4.0']
+    ['OS X 10.8', 'iphone', '6.1'],
+    ['OS X 10.8', 'iphone', '6.1'],
+    ['Windows 8.1', 'Internet Explorer', '11'],
+    ['Windows 8.1', 'firefox', '29']
   ]
 ```
 
