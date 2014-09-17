@@ -14,7 +14,7 @@ end
 
 gem 'jquery-rails'
 gem 'foundation-rails'
-gem 'devise', '2.0.5'
+gem 'devise'
 
 group :test, :development do
   gem 'selenium-webdriver'
