@@ -1,34 +1,34 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.16'
+gem 'rails', '4.1.6'
 
 gem 'sqlite3'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'coffee-rails'
+gem 'uglifier'
 
 gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'devise'
 
 group :test, :development do
-  gem 'selenium-webdriver', '2.42.0'
-  gem 'capybara', '2.2.1'
-  gem 'ae_page_objects', '1.0.0'
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'ae_page_objects'
   gem 'jasmine'
   gem 'ruby-prof'
-  gem 'sauce', '3.4.2', :require => false
-  gem 'sauce-connect', '3.4.1', :require => false
-  gem 'kracker', '0.0.2'
+  gem 'sauce', :require => false
+  gem 'sauce-connect', :require => false
+  gem 'kracker', '0.0.4'
+end
+
+group :development do
+  gem 'better_errors'
+  gem "binding_of_caller"
 end
 
 group :test do
   gem 'rake'
-  gem 'factory_girl_rails', '4.1.0'
+  gem 'factory_girl_rails'
 end

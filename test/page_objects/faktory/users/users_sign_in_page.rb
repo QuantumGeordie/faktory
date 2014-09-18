@@ -8,7 +8,7 @@ module PageObjects
         element :user_password
 
         def sign_in!
-          node.click_button('Sign in')
+          node.click_button('Log in')
         end
       end
     end
