@@ -4,7 +4,7 @@ gem 'rails', '4.1.6'
 
 gem 'sqlite3'
 
-gem 'sass-rails'
+gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'coffee-rails'
 gem 'uglifier'
 

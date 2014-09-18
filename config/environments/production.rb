@@ -67,4 +67,6 @@ Faktory::Application.configure do
 
   ## rails 4 stuff ##
   config.eager_load = true
+
+  config.assets.precompile += %w( vendor/modernizr.js )
 end
