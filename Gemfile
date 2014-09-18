@@ -1,16 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.16'
+gem 'rails', '4.1.6'
 
 gem 'sqlite3'
 
-
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-
-  gem 'uglifier'
-end
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
 
 gem 'jquery-rails'
 gem 'foundation-rails'
@@ -24,7 +20,12 @@ group :test, :development do
   gem 'ruby-prof'
   gem 'sauce', :require => false
   gem 'sauce-connect', :require => false
-  gem 'kracker'
+  gem 'kracker', :path => '~/src/gems/kracker'
+end
+
+group :development do
+  gem 'better_errors'
+  gem "binding_of_caller"
 end
 
 group :test do
