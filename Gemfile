@@ -20,7 +20,7 @@ group :test, :development do
   gem 'ruby-prof'
   gem 'sauce', :require => false
   gem 'sauce-connect', :require => false
-  gem 'kracker', :path => '~/src/gems/kracker'
+  gem 'kracker', '0.0.4'
 end
 
 group :development do
