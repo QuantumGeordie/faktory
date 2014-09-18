@@ -1,6 +1,6 @@
 #Faktory
 
-Full rails 3.2.16 app with authentication (via devise) and testing structure in place. Can be used as a testbed for new testing ideas or as a jumping off place for new apps in the future. the app is not much different than any new rails app generatied with ```rails new```; it just has some testing and layout/styling stuff added.
+Full rails 4.1.6 app with authentication (via devise) and testing structure in place. Can be used as a testbed for new testing ideas or as a jumping off place for new apps in the future. the app is not much different than any new rails app generatied with ```rails new```; it just has some testing and layout/styling stuff added.
 
 ##CI
 
