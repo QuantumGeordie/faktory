@@ -19,9 +19,6 @@ namespace :test do
 
   namespace :branch_compare do
     Rake::TestTask.new(:compile) do |t|
-      `git checkout #{ENV['THIS_BRANCH']}`
-      current_branch = `git rev-parse --abbrev-ref HEAD`.chomp
-      raise 'wrong branch' unless current_branch == ENV['THIS_BRANCH']
       t.libs << 'test'
       t.pattern = 'test/phantomjs/**/*_test.rb'
     end
