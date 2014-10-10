@@ -13,7 +13,7 @@ class CompareTest < Minitest::Test
     branch_1_files.each_with_index  do |branch_1_file, i|
       puts "  #{i} #{branch_1_file}"
       puts "    #{branch_2_files[i]}"
-      diff_file = branch_1_file.gsub(ENV['BRANCH_1'], 'diff')
+      diff_file = File.join(appearance_diff_path, File.basename(branch_1_file))
       puts "    #{diff_file}"
 
       output = nil
@@ -31,7 +31,7 @@ class CompareTest < Minitest::Test
         file_diff = 'none'
       end
 
-      puts "    same = #{same}"
+      puts "    >> same = #{same.upcase}"
       puts '-'*45
     end
 
@@ -80,7 +80,6 @@ class CompareTest < Minitest::Test
 
     status
   end
-
 end
 
 

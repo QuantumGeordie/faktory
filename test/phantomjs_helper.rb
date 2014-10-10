@@ -20,6 +20,24 @@ module Faktory
     def teardown
       Capybara.reset!
     end
+
+    private
+
+    def screenshot_path
+      File.join(Rails.root, 'tmp', 'screenshots')
+    end
+
+    def screenshot_file(name)
+      File.join(screenshot_path, branch_name, "#{name}.png")
+    end
+
+    def appearance_diff_path
+      File.join(screenshot_path, 'diff')
+    end
+
+    def branch_name
+      `git rev-parse --abbrev-ref HEAD`.chomp || 'XXXXXX'
+    end
   end
 end
 

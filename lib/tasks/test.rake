@@ -20,12 +20,12 @@ namespace :test do
   namespace :branch_compare do
     Rake::TestTask.new(:compile) do |t|
       t.libs << 'test'
-      t.pattern = 'test/phantomjs/**/*_test.rb'
+      t.pattern = 'test/appearance/**/*_test.rb'
     end
 
     Rake::TestTask.new(:compare) do |t|
       t.libs << 'test'
-      t.pattern = 'test/branch_compare/compare.rb'
+      t.pattern = 'test/branch_compare_analysis.rb'
     end
   end
 end

@@ -17,9 +17,12 @@ class UsersTest < Faktory::PhantomJSTestCase
     sign_in_page.user_password.set user.password
     sign_in_page.sign_in!
 
+    page.save_screenshot(screenshot_file('signed_in'))
     home_page = PageObjects::Faktory::HomePage.new
 
     users_page = home_page.navigation.users!
+    page.save_screenshot(screenshot_file('users'))
+
     assert page.has_content?(user.name)
 
     home_page = users_page.navigation.home!
@@ -28,19 +31,6 @@ class UsersTest < Faktory::PhantomJSTestCase
     home_page.navigation.current_user!
     assert page.has_content?(user.name)
 
-    screenshot_filename = screenshot_file(__method__)
-
-    page.save_screenshot(screenshot_filename)
-  end
-
-
-  private
-
-  def screenshot_file(name)
-    File.join(Rails.root, 'screenshots', branch_name, "#{name}.png")
-  end
-
-  def branch_name
-    `git rev-parse --abbrev-ref HEAD`.chomp || 'XXXXXX'
+    page.save_screenshot(screenshot_file('current_user'))
   end
 end
