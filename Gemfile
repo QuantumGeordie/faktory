@@ -31,4 +31,6 @@ end
 group :test do
   gem 'rake'
   gem 'factory_girl_rails'
+  gem 'poltergeist'
+  gem 'open4', '1.3.4'
 end

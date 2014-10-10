@@ -16,6 +16,18 @@ namespace :test do
       Rake::Task['test:selenium'].invoke
     end
   end
+
+  namespace :branch_compare do
+    Rake::TestTask.new(:compile) do |t|
+      t.libs << 'test'
+      t.pattern = 'test/phantomjs/**/*_test.rb'
+    end
+
+    Rake::TestTask.new(:compare) do |t|
+      t.libs << 'test'
+      t.pattern = 'test/branch_compare/compare.rb'
+    end
+  end
 end
 
 task :test => [ 'test:units', 'test:functionals', 'test:integration', 'test:selenium' ]
