@@ -5,15 +5,20 @@ require 'open4'
 require "minitest/autorun"
 
 class CompareTest < Minitest::Test
-  def test_foo
-    branch_1_files = Dir[File.expand_path(File.join('..', '..', '..', 'screenshots', ENV['BRANCH_1'], '*.png'), __FILE__)]
-    branch_2_files = Dir[File.expand_path(File.join('..', '..', '..', 'screenshots', ENV['BRANCH_2'], '*.png'), __FILE__)]
+  def test_compare
+    branch_1_files = Dir[File.expand_path(File.join('..', '..', 'tmp', 'screenshots', ENV['BRANCH_1'], '*.png'), __FILE__)]
+    branch_2_files = Dir[File.expand_path(File.join('..', '..', 'tmp', 'screenshots', ENV['BRANCH_2'], '*.png'), __FILE__)]
     puts "let's run the comparison between branches #{ENV['BRANCH_1']} and #{ENV['BRANCH_2']}"
+    diff_path = File.expand_path(File.join('..', '..', 'tmp', 'screenshots', 'diff'), __FILE__)
+    puts diff_path
+    FileUtils.mkdir_p(diff_path)
+
+    results = []
 
     branch_1_files.each_with_index  do |branch_1_file, i|
+      diff_file = File.join(diff_path, File.basename(branch_1_file))
       puts "  #{i} #{branch_1_file}"
       puts "    #{branch_2_files[i]}"
-      diff_file = File.join(appearance_diff_path, File.basename(branch_1_file))
       puts "    #{diff_file}"
 
       output = nil
@@ -31,10 +36,14 @@ class CompareTest < Minitest::Test
         file_diff = 'none'
       end
 
-      puts "    >> same = #{same.upcase}"
+      results << same
+      puts "    >> same = #{same.to_s.upcase}"
       puts '-'*45
     end
 
+    failed_count = results.select{ |result| !result }.count
+
+    assert_equal 0, failed_count, "There were #{failed_count} comparison failures"
   end
 
   private
