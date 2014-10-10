@@ -23,6 +23,8 @@ module Faktory
   end
 end
 
-`git checkout #{ENV['THIS_BRANCH']}`
-current_branch = `git rev-parse --abbrev-ref HEAD`.chomp
-raise 'wrong branch' unless current_branch == ENV['THIS_BRANCH']
+if ENV['THIS_BRANCH']
+  `git checkout #{ENV['THIS_BRANCH']}`
+  current_branch = `git rev-parse --abbrev-ref HEAD`.chomp
+  raise 'wrong branch' unless current_branch == ENV['THIS_BRANCH']
+end
