@@ -3,8 +3,7 @@ require 'phantomjs_helper'
 class UsersTest < Faktory::PhantomJSTestCase
   def test_home
     PageObjects::Faktory::HomePage.visit
-    screenshot_filename = screenshot_file(__method__)
-    page.save_screenshot(screenshot_filename)
+    Ojo.screenshot(branch_name, __method__)
   end
 
   def test_sign_in__form
@@ -17,11 +16,11 @@ class UsersTest < Faktory::PhantomJSTestCase
     sign_in_page.user_password.set user.password
     sign_in_page.sign_in!
 
-    page.save_screenshot(screenshot_file('signed_in'))
+    Ojo.screenshot(branch_name, 'signed_in')
     home_page = PageObjects::Faktory::HomePage.new
 
     users_page = home_page.navigation.users!
-    page.save_screenshot(screenshot_file('users'))
+    Ojo.screenshot(branch_name, 'user')
 
     assert page.has_content?(user.name)
 
@@ -31,6 +30,6 @@ class UsersTest < Faktory::PhantomJSTestCase
     home_page.navigation.current_user!
     assert page.has_content?(user.name)
 
-    page.save_screenshot(screenshot_file('current_user'))
+    Ojo.screenshot(branch_name, 'current_user')
   end
 end

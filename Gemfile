@@ -21,6 +21,7 @@ group :test, :development do
   gem 'sauce', :require => false
   gem 'sauce-connect', :require => false
   gem 'kracker', '0.0.4'
+  gem 'ojo'
 end
 
 group :development do
