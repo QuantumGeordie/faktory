@@ -124,22 +124,34 @@ module Faktory
 
     def teardown
       capture_artifacts unless passed?
+      capture_screenshot_for_appearance_check
     end
 
     def capture_artifacts
-      filename = File.join(screenshot_path, "#{send(:__name__)}.png")
+      filename = File.join(artifacts_path, "#{send(:name)}.png")
       page.driver.browser.save_screenshot(filename)
     end
 
+    def capture_screenshot_for_appearance_check
+      filename = File.join(appearance_screenshots_path, "#{send(:name)}.png")
+      page.driver.browser.save_screenshot(filename)
+    end
   end
 end
 
-def screenshot_path
+def appearance_screenshots_path
+  branch = `git rev-parse --abbrev-ref HEAD`.chomp || 'XXXXXX'
+  Ojo.location = File.join(Rails.root, 'test', 'tmp') unless Ojo.location
+  File.join(Ojo.location, branch)
+end
+
+def artifacts_path
   File.join(::Rails.root, 'tmp', 'screenshots')
 end
 
-FileUtils.rm_rf screenshot_path
-FileUtils.mkdir_p screenshot_path
+FileUtils.rm_rf artifacts_path
+FileUtils.mkdir_p artifacts_path
+FileUtils.mkdir_p appearance_screenshots_path
 
 def resize_browser(width, height)
   page.driver.browser.manage.window.resize_to(width, height)

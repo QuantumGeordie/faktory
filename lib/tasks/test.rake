@@ -4,9 +4,8 @@ require 'rake'
 namespace :test do
   desc "selenium tests"
   Rake::TestTask.new(:selenium) do |t|
-    t.libs << "test"
+    t.libs << 'test'
     t.pattern = 'test/selenium/**/*_test.rb'
-    #t.verbose = true
   end
 
   namespace :selenium do

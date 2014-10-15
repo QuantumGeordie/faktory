@@ -14,5 +14,4 @@ class HomeTest < Faktory::SeleniumTestCase
       assert res, msg
     end
   end
-
 end
