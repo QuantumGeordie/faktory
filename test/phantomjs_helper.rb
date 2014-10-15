@@ -2,15 +2,20 @@ require 'test_helper'
 
 require 'capybara/dsl'
 require 'capybara/rails'
-require 'capybara/poltergeist'
-# require 'selenium-webdriver'
 
-require 'page_objects'
+## PhantomJS driver
+require 'capybara/poltergeist'
 
 Capybara.default_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist
+
+## same tests can be run with selenium instead of phantomjs/poltergeist
+# require 'selenium-webdriver'
+
 # Capybara.default_driver = :selenium
 # Capybara.javascript_driver = :selenium
+
+require 'page_objects'
 
 module Faktory
   class PhantomJSTestCase < ActiveSupport::TestCase

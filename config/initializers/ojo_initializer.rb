@@ -1,1 +1,1 @@
-Ojo.location = File.join(Rails.root, 'tmp', 'screenshots')
+Ojo.location = File.join(Rails.root, 'tmp', 'appearance')
