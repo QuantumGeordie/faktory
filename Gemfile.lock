@@ -1,7 +1,6 @@
 GIT
-  remote: https://github.com/QuantumGeordie/ojo.git
-  revision: 72e6e025e2560b9fdae41c6ad490f0f57c6c1461
-  ref: 72e6e025e2560b9fdae41c6ad490f0f57c6c1461
+  remote: git://github.com/QuantumGeordie/ojo.git
+  revision: a9afbf466c843dbd2dcc880a27512202e80a2c9a
   specs:
     ojo (0.0.1)
       collimator

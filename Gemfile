@@ -21,7 +21,7 @@ group :test, :development do
   gem 'sauce', :require => false
   gem 'sauce-connect', :require => false
   gem 'kracker', '0.0.4'
-  gem 'ojo', :git => 'https://github.com/QuantumGeordie/ojo.git', :ref => '72e6e025e2560b9fdae41c6ad490f0f57c6c1461'
+  gem 'ojo', :github => 'QuantumGeordie/ojo'
 end
 
 group :development do
