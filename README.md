@@ -2,9 +2,13 @@
 
 Full rails 4.1.6 app with authentication (via devise) and testing structure in place. Can be used as a testbed for new testing ideas or as a jumping off place for new apps in the future. the app is not much different than any new rails app generatied with ```rails new```; it just has some testing and layout/styling stuff added.
 
+## Code Climate
+
+[![Code Climate](https://codeclimate.com/github/QuantumGeordie/faktory/badges/gpa.svg)](https://codeclimate.com/github/QuantumGeordie/faktory)
+
 ##CI
 
-__Travis__ [![Build Status](https://travis-ci.org/QuantumGeordie/faktory.png?branch=master)](https://travis-ci.org/QuantumGeordie/faktory)
+[![Build Status](https://travis-ci.org/QuantumGeordie/faktory.svg?branch=master)](https://travis-ci.org/QuantumGeordie/faktory)
 
 ##Layout/Style
 
