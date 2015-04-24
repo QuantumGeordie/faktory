@@ -21,12 +21,12 @@ group :test, :development do
   gem 'sauce', :require => false
   gem 'sauce-connect', :require => false
   gem 'kracker', '0.0.4'
-  gem 'ojo', :github => 'QuantumGeordie/ojo'
+  gem 'ojo', '1.0.2'
 end
 
 group :development do
   gem 'better_errors'
-  gem "binding_of_caller"
+  gem 'binding_of_caller'
 end
 
 group :test do

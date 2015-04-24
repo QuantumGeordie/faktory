@@ -4,16 +4,16 @@ require 'capybara/dsl'
 require 'capybara/rails'
 
 ## PhantomJS driver
-require 'capybara/poltergeist'
+# require 'capybara/poltergeist'
 
-Capybara.default_driver = :poltergeist
-Capybara.javascript_driver = :poltergeist
+# Capybara.default_driver = :poltergeist
+# Capybara.javascript_driver = :poltergeist
 
 ## same tests can be run with selenium instead of phantomjs/poltergeist
-# require 'selenium-webdriver'
+require 'selenium-webdriver'
 
-# Capybara.default_driver = :selenium
-# Capybara.javascript_driver = :selenium
+Capybara.default_driver = :selenium
+Capybara.javascript_driver = :selenium
 
 require 'page_objects'
 
