@@ -11,6 +11,8 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'devise'
+gem 'rest-client'
+gem 'pry'
 
 group :test, :development do
   gem 'selenium-webdriver'
@@ -22,6 +24,7 @@ group :test, :development do
   gem 'sauce-connect', :require => false
   gem 'dom_glancy', '1.1.0'
   gem 'ojo', '1.0.2'
+  gem "sinatra", "1.4.5"
 end
 
 group :development do
@@ -34,4 +37,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'poltergeist'
   gem 'open4', '1.3.4'
+  gem 'webmock', :require => false
 end
