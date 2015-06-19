@@ -18,6 +18,7 @@ module Fakes
     end
 
     get '/api/:key/:value' do
+      halt(@@status) unless @@status == 200
       @@counter += 1
       key   = @@key.upcase == 'BYPASS' ? params[:key] : @@key
       value = case @@value
@@ -35,7 +36,7 @@ module Fakes
     end
 
     get '/config/set_status/:status/?' do
-      @@status = params[:status]
+      @@status = params[:status].to_i
       content_type :json
       status @@status
       "status set to #{@@status}"
@@ -49,6 +50,14 @@ module Fakes
     get '/config/set_value/:value' do
       @@value = params[:value]
       "value set to #{@@value}"
+    end
+
+    get '/config/reset/?' do
+      @@counter = 0
+      @@status  = 200
+      @@key     = 'geordie'
+      @@value   = 'counter'
+      @magic = ''
     end
   end
 end

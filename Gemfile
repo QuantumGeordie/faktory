@@ -13,6 +13,7 @@ gem 'foundation-rails'
 gem 'devise'
 gem 'rest-client'
 gem 'pry'
+gem 'awesome_print'
 
 group :test, :development do
   gem 'selenium-webdriver'
