@@ -19,8 +19,8 @@ script:
 - bundle exec rake BROWSER_SIZE=800x600
 after_failure:
 - travis-artifacts upload
-  --path test/kracker/current
-  --path test/kracker/diff
+  --path test/dom_glancy/current
+  --path test/dom_glancy/diff
   --path tmp/screenshots
   --target-path faktory-artifacts/$TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER
 addons:

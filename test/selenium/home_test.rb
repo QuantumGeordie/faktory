@@ -9,8 +9,8 @@ class HomeTest < Faktory::SeleniumTestCase
 
     assert page.has_content?(page_text)
 
-    if RUN_KRACKER_TESTS
-      res, msg = page_map_same?('home')
+    if RUN_DOM_GLANCY_TESTS
+      res, msg = @dom_glancy.page_map_same?('home')
       assert res, msg
     end
   end

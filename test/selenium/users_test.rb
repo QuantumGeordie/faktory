@@ -68,16 +68,16 @@ class UsersTest < Faktory::SeleniumTestCase
     home_page = PageObjects::Faktory::HomePage.visit
     home_page.navigation.toggle_menu
     assert page.has_content?(user.name), 'user should be logged in now'
-    logged_in_page_same, logged_in_msg = page_map_same?('logged_in') if RUN_KRACKER_TESTS
+    logged_in_page_same, logged_in_msg = @dom_glancy.page_map_same?('logged_in') if RUN_DOM_GLANCY_TESTS
 
     home_page.navigation.toggle_menu
 
     home_page.navigation.logout
     assert page.has_content?('Signed out successfully.')
 
-    logged_out_page_same, logged_out_msg = page_map_same?('logged_out') if RUN_KRACKER_TESTS
+    logged_out_page_same, logged_out_msg = @dom_glancy.page_map_same?('logged_out') if RUN_DOM_GLANCY_TESTS
 
-    if RUN_KRACKER_TESTS
+    if RUN_DOM_GLANCY_TESTS
       assert logged_in_page_same,  logged_in_msg
       assert logged_out_page_same, logged_out_msg
     end

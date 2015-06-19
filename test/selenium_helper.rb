@@ -7,9 +7,9 @@ require 'selenium-webdriver'
 
 require 'page_objects'
 
-require 'kracker'
+require 'dom_glancy'
 
-RUN_KRACKER_TESTS = false
+RUN_DOM_GLANCY_TESTS = ENV['DOM_GLANCY']
 
 if ENV["SAUCE"]
   require 'sauce'
@@ -120,7 +120,11 @@ end
 
 module Faktory
   class SeleniumTestCase
-    include Kracker
+    include DomGlancy
+
+    def setup
+      @dom_glancy = DomGlancy.new
+    end
 
     def teardown
       capture_artifacts unless passed?
