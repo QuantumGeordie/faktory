@@ -20,7 +20,7 @@ group :test, :development do
   gem 'ruby-prof'
   gem 'sauce', :require => false
   gem 'sauce-connect', :require => false
-  gem 'kracker', '0.0.4'
+  gem 'dom_glancy', '1.1.0'
   gem 'ojo', '1.0.2'
 end
 
