@@ -7,6 +7,7 @@ Faktory::Application.routes.draw do
   resources :users
 
   get "welcome/index"
+  get 'welcome/blank_app'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
