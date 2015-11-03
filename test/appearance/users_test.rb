@@ -14,10 +14,9 @@ class UsersTest < Faktory::PhantomJSTestCase
     sign_in_page = home_page.navigation.sign_in!
     sign_in_page.user_email.set user.email
     sign_in_page.user_password.set user.password
-    sign_in_page.sign_in!
+    home_page = sign_in_page.sign_in!
 
     Ojo.screenshot(branch_name, 'signed_in')
-    home_page = PageObjects::Faktory::HomePage.new
 
     users_page = home_page.navigation.users!
     Ojo.screenshot(branch_name, 'user')

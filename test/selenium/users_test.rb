@@ -17,9 +17,9 @@ class UsersTest < Faktory::SeleniumTestCase
     sign_in_page = home_page.navigation.sign_in!
     sign_in_page.user_email.set user.email
     sign_in_page.user_password.set user.password
-    sign_in_page.sign_in!
+    home_page = sign_in_page.sign_in!
 
-    home_page = PageObjects::Faktory::HomePage.new
+    # home_page = PageObjects::Faktory::HomePage.new
 
     users_page = home_page.navigation.users!
     assert page.has_content?(user.name)
