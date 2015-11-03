@@ -9,6 +9,7 @@ module PageObjects
 
         def sign_in!
           node.click_button('Log in')
+          PageObjects::Faktory::HomePage.new
         end
       end
     end

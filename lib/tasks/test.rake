@@ -17,6 +17,6 @@ namespace :test do
   end
 end
 
-task :test => [ 'test:units', 'test:functionals', 'test:integration', 'test:selenium' ]
+# task :test => [ 'test:units', 'test:functionals', 'test:integration', 'test:selenium' ]
 
-task :default => :test
+# task :default => :test

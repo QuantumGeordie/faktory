@@ -129,6 +129,7 @@ module Faktory
     def teardown
       capture_artifacts unless passed?
       capture_screenshot_for_appearance_check
+      logout
     end
 
     def capture_artifacts
